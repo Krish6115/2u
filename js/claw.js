@@ -143,22 +143,29 @@ BD.claw = {
 
     /* ---- controls ---- */
     const knob = $('.knob'), pad = $('.pad');
+    let lastX = 0, t0 = 0;
     function stick(e) {
       const r = pad.getBoundingClientRect();
       let x = (e.clientX - r.left - r.width / 2) / (r.width / 2), y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
       const m = Math.hypot(x, y); if (m > 1) { x /= m; y /= m; }
       knob.style.transform = `translate(${x * 16}px,${y * 16}px)`;
-      dir = Math.abs(x) > .25 ? Math.sign(x) * Math.min(1, Math.abs(x) * 1.3) : 0;
+      lastX = x;
+      dir = Math.abs(x) > .12 ? Math.sign(x) : 0;
     }
     let dragging = false;
     const rel = () => { dragging = false; dir = 0; knob.style.transform = ''; };
     pad.addEventListener('pointerdown', e => {
-      dragging = true;
+      dragging = true; t0 = performance.now();
       try { pad.setPointerCapture(e.pointerId); } catch { /* window listeners still track it */ }
       stick(e);
     });
     addEventListener('pointermove', e => { if (dragging) stick(e); });
-    addEventListener('pointerup', () => { if (dragging) rel(); });
+    addEventListener('pointerup', () => {
+      if (!dragging) return;
+      /* a quick click nudges the claw a little so a plain click always does something */
+      if (performance.now() - t0 < 250 && !busy && Math.abs(lastX) > .12) cx = Math.max(14, Math.min(W - 14, cx + Math.sign(lastX) * 18));
+      rel();
+    });
     addEventListener('pointercancel', () => { if (dragging) rel(); });
     addEventListener('blur', rel);
     pad.addEventListener('lostpointercapture', () => { if (dragging) rel(); });

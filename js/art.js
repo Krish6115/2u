@@ -79,3 +79,45 @@ BD.art.cake = (candles = 3, big = false) => {
   </svg>`;
 };
 
+BD.art.envelope = `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" class="env-svg"><defs>
+<linearGradient id="e1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6a8c0"/><stop offset="1" stop-color="#e68ba9"/></linearGradient>
+<linearGradient id="e2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9c0d2"/><stop offset="1" stop-color="#f093b1"/></linearGradient>
+<radialGradient id="e3" cx=".35" cy=".3"><stop offset="0" stop-color="#f0485f"/><stop offset="1" stop-color="#a5102d"/></radialGradient></defs>
+<path d="M0 40h400v260H0z" fill="url(#e1)"/><path d="M0 300L200 170L400 300z" fill="#f2a0ba" opacity=".5"/>
+<path d="M0 40Q200 10 400 40L400 70Q200 250 0 70z" fill="url(#e2)"/>
+<path d="M0 40Q200 10 400 40" stroke="#fff" stroke-opacity=".5" fill="none" stroke-width="2"/>
+<circle cx="200" cy="170" r="28" fill="url(#e3)"/><circle cx="200" cy="170" r="21" fill="none" stroke="#7d0a22" stroke-opacity=".35" stroke-width="2"/>
+<path d="M200 182c-11-7-11-16-4-17 2 0 4 1 4 3 0-2 2-3 4-3 7 1 7 10-4 17z" fill="#ff8fa3"/></svg>`;
+
+BD.art.jar = `<svg viewBox="0 0 220 250" class="jar-svg"><defs>
+<radialGradient id="jg" cx=".5" cy=".55" r=".6"><stop offset="0" stop-color="#fff2c4" stop-opacity=".95"/><stop offset=".7" stop-color="#ffd6e6" stop-opacity=".5"/><stop offset="1" stop-color="#fff" stop-opacity=".2"/></radialGradient>
+<linearGradient id="jc" x1="0" x2="1"><stop offset="0" stop-color="#c99560"/><stop offset=".5" stop-color="#e6bb8a"/><stop offset="1" stop-color="#b8844f"/></linearGradient></defs>
+<ellipse cx="110" cy="236" rx="70" ry="9" fill="#000" opacity=".1"/>
+<path d="M62 62c-22 14-38 40-38 80 0 50 34 86 86 86s86-36 86-86c0-40-16-66-38-80z" fill="url(#jg)" stroke="#fff" stroke-width="3" stroke-opacity=".8"/>
+<path d="M40 130c2-26 14-44 30-56" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none" opacity=".7"/>
+<g id="jarStars"></g>
+<rect x="68" y="46" width="84" height="22" rx="6" fill="#f1e4ff" stroke="#fff" stroke-width="2"/>
+<path d="M72 34h76l4 16H68z" fill="url(#jc)"/><rect x="72" y="22" width="76" height="16" rx="8" fill="url(#jc)"/>
+<path d="M66 60h88" stroke="#b39ddb" stroke-width="9" stroke-linecap="round"/>
+<path d="M110 60c-20-18-34-6-22 4 8 6 20 0 22-4zM110 60c20-18 34-6 22 4-8 6-20 0-22-4z" fill="#c7a8f0"/><circle cx="110" cy="60" r="6" fill="#b08ae0"/></svg>`;
+
+BD.art.camera = `<svg viewBox="0 0 150 110" class="cam"><rect x="6" y="14" width="138" height="92" rx="16" fill="#8fd6bd"/><rect x="6" y="14" width="138" height="30" rx="14" fill="#a9e6d0"/>
+<rect x="18" y="26" width="42" height="26" rx="6" fill="#fff"/><circle cx="104" cy="62" r="34" fill="#6f4fc8"/><circle cx="104" cy="62" r="26" fill="#2c2144"/><circle cx="104" cy="62" r="14" fill="#4a3a7a"/><circle cx="98" cy="55" r="5" fill="#fff" opacity=".8"/>
+<circle cx="132" cy="26" r="7" fill="#f06292"/><path d="M68 14l6-10h28l6 10z" fill="#74c4aa"/></svg>`;
+
+BD.art.map = `<svg viewBox="0 0 320 220" class="map-svg"><defs><filter id="ms"><feDropShadow dx="0" dy="8" stdDeviation="6" flood-opacity=".22"/></filter></defs>
+<g filter="url(#ms)"><polygon points="14,52 112,30 112,196 14,214" fill="#d6ecd3"/><polygon points="112,30 214,50 214,206 112,196" fill="#f6f1de"/><polygon points="214,50 306,26 306,190 214,206" fill="#cfe5f2"/></g>
+<path d="M30 80q40-12 70 4M30 150q50 12 70-6M130 60q40 30 60 0M130 150q36 24 70 10M232 80q30-20 60-6M232 150q30 12 56-6" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none" opacity=".85"/>
+<circle cx="256" cy="120" r="22" fill="#9ed0ea" opacity=".7"/><circle cx="52" cy="120" r="14" fill="#b6dcb1" opacity=".8"/>
+<path id="route" d="M40 160C80 90 130 190 168 120S250 150 286 66" stroke="#e53960" stroke-width="3.4" stroke-dasharray="1 8" stroke-linecap="round" fill="none"/>
+<g id="mapDots"></g>
+<g id="pin" style="transition:transform .7s cubic-bezier(.5,1.4,.5,1)"><path d="M0 0c-16-18-16-40 0-44 16 4 16 26 0 44z" transform="translate(0 4) scale(1.1)" fill="#e0245e"/><circle cx="0" cy="-30" r="8" fill="#fff"/><path d="M0 -24c-6-4-6-9-2-10 1 0 2 1 2 2 0-1 1-2 2-2 4 1 4 6-2 10z" fill="#e0245e"/></g></svg>`;
+
+BD.art.vinyl = `<svg viewBox="0 0 200 200" class="vinyl-svg"><defs><radialGradient id="vg" cx=".4" cy=".35"><stop offset="0" stop-color="#e2cdfa"/><stop offset=".6" stop-color="#c3a0ee"/><stop offset="1" stop-color="#a77ee0"/></radialGradient></defs>
+<circle cx="100" cy="100" r="98" fill="url(#vg)"/>
+${[88, 78, 68, 58].map(r => `<circle cx="100" cy="100" r="${r}" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.2"/>`).join('')}
+<circle cx="100" cy="100" r="36" fill="#f7b3c9"/><circle cx="100" cy="100" r="34" fill="none" stroke="#fff" stroke-opacity=".6" stroke-dasharray="2 4"/>
+<path d="M60 40a80 80 0 0 1 60-12" stroke="#fff" stroke-opacity=".55" stroke-width="6" stroke-linecap="round" fill="none"/></svg>`;
+
+BD.art.heart = (c = '#e0245e', s = 22) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24"><path d="M12 21C3 14.5 3 7 7.5 6c2.2-.4 3.8 1 4.5 2.6C12.7 7 14.300 5.600 16.500 6 21 7 21 14.500 12 21z" fill="${c}"/></svg>`;
+

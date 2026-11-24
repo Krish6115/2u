@@ -76,7 +76,7 @@
     return {
       n: v('fName'), f: v('fFrom'), a: +v('fAge'), d: v('fBday'), l: $('#fLetter').value.trim(),
       p: L.prizes.get(), s: L.story.get(), w: L.wishes.get(), ph: photos, pl: L.places.get(),
-      dk: { date: v('fDate'), cap: v('fDateCap') }, so: { url: v('fSong'), title: v('fSongTitle'), file: v('fSongFile') }
+      dk: { date: v('fDate'), cap: v('fDateCap') }, so: { url: v('fSong'), title: v('fSongTitle') }
     };
   }
   function fill(d) {
@@ -85,13 +85,12 @@
     L.prizes.set(d.p || []); L.story.set(d.s || []); L.wishes.set(d.w || []); L.places.set(d.pl || []);
     photos = (d.ph || []).slice(); drawPhotos();
     $('#fDate').value = d.dk?.date || ''; $('#fDateCap').value = d.dk?.cap || '';
-    $('#fSong').value = d.so?.url || ''; $('#fSongTitle').value = d.so?.title || ''; $('#fSongFile').value = d.so?.file || '';
+    $('#fSong').value = d.so?.url || ''; $('#fSongTitle').value = d.so?.title || '';
   }
   function save() { try { localStorage.setItem(DRAFT, JSON.stringify(collect())); } catch { /* quota */ } }
   try { const r = localStorage.getItem(DRAFT); if (r) fill(JSON.parse(r)); } catch { /* ignore */ }
   $('#form').addEventListener('input', save);
 
-  $('#loadSample').onclick = () => { fill(BD.sample); save(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
   /* ----- submit ----- */
   function validate(d) {
@@ -104,7 +103,7 @@
     if (d.w.length < 1) return 'Add at least one wish (step 4).';
     if (d.pl.length < 1) return 'Add at least one place (step 6).';
     if (!d.dk.date) return 'Pick the special date (step 7).';
-    if (!d.so.file && !BD.ytId(d.so.url)) return 'Add a YouTube link or an audio file name (step 8).';
+    if (!BD.ytId(d.so.url)) return 'That song link doesn’t look like a YouTube link (step 8).';
     return '';
   }
   $('#form').addEventListener('submit', async e => {

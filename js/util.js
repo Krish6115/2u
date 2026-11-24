@@ -79,7 +79,7 @@ BD.tween = (from, to, ms, fn, ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 *
   });
 
 BD.sample = {
-  n: 'Kimchi', f: 'Krishna', a: 26, d: '2026-11-25',
+  n: 'Alex', f: 'Sam', a: 26, d: '2026-11-25',
   l: "Happy birthday, my favourite human.\n\nI hope you know how precious you are to me. Beyond all our stupid conversations, teasing and random nonsense, I genuinely care about you more than I can put into words.\n\nYou deserve the kind of happiness that stays, and I hope this year brings you all of it.",
   p: ['The hard work you do, such a ground to look up to.', 'Your cute little chaos that I could never get tired of.', 'The way you make everyone around you feel at home.'],
   s: ["It's been almost three years of knowing you, and I'm genuinely glad life somehow brought you into mine.", 'Then came the late-night chats that never seemed to end.', 'And here we are, still going.'],

@@ -26,8 +26,8 @@
     <section class="card">
       <h2><span>★</span> The basics</h2>
       <div class="grid2">
-        <label>Their name<input id="fName" placeholder="Kimchi" maxlength="30" required></label>
-        <label>Your name<input id="fFrom" placeholder="Krishna" maxlength="30" required></label>
+        <label>Their name<input id="fName" maxlength="30" required></label>
+        <label>Your name<input id="fFrom" maxlength="30" required></label>
         <label>Turning (age)<input id="fAge" type="number" min="1" max="99" placeholder="26" required></label>
         <label>Birthday<input id="fBday" type="date" required></label>
       </div>
@@ -82,7 +82,6 @@
       <h2><span>8</span> Our song</h2>
       <div class="grid2">
         <label class="span2">YouTube link<input id="fSong" placeholder="https://www.youtube.com/watch?v=…"></label>
-        <label class="span2">Or an audio file in the site folder <em>(optional, plays instead of YouTube, e.g. song.mp3)</em><input id="fSongFile" placeholder="song.mp3"></label>
         <label class="span2">Song name <em>(optional)</em><input id="fSongTitle" maxlength="60" placeholder="Our song"></label>
       </div>
     </section>
@@ -91,7 +90,6 @@
 
     <p id="err" class="err" hidden></p>
     <button class="btn-main" id="make" type="submit">Create the link ✨</button>
-    <button class="btn-ghost" id="loadSample" type="button">Fill with sample text</button>
   </form>
 
   <section id="result" class="card result" hidden>

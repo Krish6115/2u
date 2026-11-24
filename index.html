@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Happy Birthday 🎂</title>
+<meta name="theme-color" content="#fdeee7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/scenes.css">
+<link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+
+<!-- ============ SETUP FORM ============ -->
+<main id="setup" hidden>
+  <header class="s-head">
+    <div class="s-badge">🎂</div>
+    <h1>Make a birthday surprise</h1>
+    <p>Fill this in once. You get a link to send. Everything below shows up in the 10 steps.</p>
+  </header>
+
+  <form id="form" autocomplete="off">
+    <section class="card">
+      <h2><span>★</span> The basics</h2>
+      <div class="grid2">
+        <label>Their name<input id="fName" placeholder="Kimchi" maxlength="30" required></label>
+        <label>Your name<input id="fFrom" placeholder="Krishna" maxlength="30" required></label>
+        <label>Turning (age)<input id="fAge" type="number" min="1" max="99" placeholder="26" required></label>
+        <label>Birthday<input id="fBday" type="date" required></label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span>1</span> The letter</h2>
+      <p class="hint">Shown inside the envelope. It opens with “Dear (name),” automatically. Blank line = new paragraph.</p>
+      <textarea id="fLetter" rows="8" placeholder="Happy birthday, my favourite human…"></textarea>
+    </section>
+
+    <section class="card">
+      <h2><span>2</span> What I love about you <em>(claw game)</em></h2>
+      <p class="hint">Each line is one prize she grabs from the machine. 3 or more works best.</p>
+      <div id="listPrizes"></div>
+    </section>
+
+    <section class="card">
+      <h2><span>3</span> Our story <em>(book)</em></h2>
+      <p class="hint">One box per chapter. Chapter I, II, III… are numbered for you.</p>
+      <div id="listStory"></div>
+    </section>
+
+    <section class="card">
+      <h2><span>4</span> Wishes <em>(wish jar)</em></h2>
+      <p class="hint">Each wish appears when she taps “Make a wish”.</p>
+      <div id="listWishes"></div>
+    </section>
+
+    <section class="card">
+      <h2><span>5</span> Photo booth</h2>
+      <p class="hint">Up to 4 photos. They’re shrunk to fit inside the link. Add a short caption if you like.</p>
+      <input id="fPhotos" type="file" accept="image/*" multiple>
+      <div id="photoList" class="photos"></div>
+    </section>
+
+    <section class="card">
+      <h2><span>6</span> Our places</h2>
+      <p class="hint">Just names, in the order you went. No map needed.</p>
+      <div id="listPlaces"></div>
+    </section>
+
+    <section class="card">
+      <h2><span>7</span> A date to keep</h2>
+      <div class="grid2">
+        <label>The date<input id="fDate" type="date"></label>
+        <label class="span2">Why it’s special<input id="fDateCap" maxlength="120" placeholder="The day we first properly talked."></label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span>8</span> Our song</h2>
+      <div class="grid2">
+        <label class="span2">YouTube link<input id="fSong" placeholder="https://www.youtube.com/watch?v=…"></label>
+        <label class="span2">Or an audio file in the site folder <em>(optional, plays instead of YouTube, e.g. song.mp3)</em><input id="fSongFile" placeholder="song.mp3"></label>
+        <label class="span2">Song name <em>(optional)</em><input id="fSongTitle" maxlength="60" placeholder="Our song"></label>
+      </div>
+    </section>
+
+    <p class="fixed-note">Steps 9 (blow the candles) and 10 (final wish) are automatic: your age and both names are used there.</p>
+
+    <p id="err" class="err" hidden></p>
+    <button class="btn-main" id="make" type="submit">Create the link ✨</button>
+    <button class="btn-ghost" id="loadSample" type="button">Fill with sample text</button>
+  </form>
+
+  <section id="result" class="card result" hidden>
+    <h2>Your link is ready 🎉</h2>
+    <input id="linkOut" readonly>
+    <div class="row">
+      <button class="btn-main" id="copy" type="button">Copy link</button>
+      <a class="btn-ghost" id="preview" target="_blank" rel="noopener">Preview</a>
+      <a class="btn-ghost" id="wa" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="hint" id="linkInfo"></p>
+    <button class="btn-ghost" id="back" type="button">← Edit again</button>
+  </section>
+</main>
+
+<!-- ============ THE EXPERIENCE ============ -->
+<div id="app" hidden></div>
+
+<script src="js/util.js"></script>
+<script src="js/form.js"></script>
+<script src="js/art.js"></script>
+<script src="js/claw.js"></script>
+<script src="js/candles.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

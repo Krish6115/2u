@@ -1,0 +1,17 @@
+#setup{max-width:660px;margin:0 auto;padding:28px 16px 80px}
+.s-head{text-align:center;margin-bottom:22px}
+.s-badge{width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:30px;margin:0 auto 10px;box-shadow:0 8px 24px rgba(194,24,91,.18)}
+.s-head h1{font:900 clamp(26px,6vw,36px)/1.1 var(--serif);color:var(--maroon)}
+.s-head p{color:var(--muted);margin-top:8px;font-size:14px}
+.card{background:rgba(255,255,255,.82);border-radius:22px;padding:18px;margin-bottom:14px;box-shadow:0 6px 22px rgba(120,40,80,.08);backdrop-filter:blur(6px)}
+.card h2{font:800 18px var(--serif);color:var(--maroon);display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.card h2 span{width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font:700 13px var(--sans);display:grid;place-items:center;flex:none}
+.card h2 em{font:500 13px var(--sans);color:var(--muted)}
+.hint{font-size:13px;color:var(--muted);margin:2px 0 10px}
+label{display:block;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.02em}
+label em{font-weight:400}
+input,textarea{width:100%;font:500 15px var(--sans);color:var(--ink);background:#fff;border:1.5px solid #f0d5df;border-radius:12px;padding:11px 12px;margin-top:5px;outline:none;transition:.15s}
+input:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(194,24,91,.12)}
+textarea{resize:vertical;line-height:1.45}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.span2{grid-column:1/-1}

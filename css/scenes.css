@@ -81,3 +81,26 @@
 .grab{flex:none;width:62px;height:62px;border-radius:50%;border:0;background:radial-gradient(circle at 35% 30%,#d9446f,#a30f48 70%);color:#fff;font:800 11px var(--sans);letter-spacing:.06em;box-shadow:0 6px 12px rgba(150,10,60,.4),inset 0 -4px 6px rgba(0,0,0,.18)}
 .grab:active{transform:scale(.94)}
 
+/* ===== 3 book ===== */
+.bk-wrap{height:100%;display:flex;flex-direction:column;align-items:center;padding:62px 22px 0;width:100%}
+.bk-wrap>.kick{align-self:flex-start;color:var(--red2)}.bk-wrap>.h2{align-self:flex-start}
+.book{flex:1;min-height:0;width:100%;max-width:340px;margin:12px 0 0;position:relative;perspective:1200px}
+.bk-cover{position:absolute;inset:6px 4px 14px;background:#f4a3bf radial-gradient(rgba(255,255,255,.4) 1.6px,transparent 2px) 0 0/16px 16px;border-radius:6px 16px 16px 6px;box-shadow:inset 8px 0 0 #e583a6,0 14px 28px rgba(120,40,70,.28);border:2px dashed rgba(255,255,255,.55);outline:6px solid #f6b4ca;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;cursor:pointer;animation:cov 3s ease-in-out infinite}
+@keyframes cov{50%{transform:rotateY(-6deg)}}
+.gifts svg{filter:drop-shadow(0 8px 6px rgba(0,0,0,.2))}
+.bk-label{background:#fff;border-radius:16px;padding:12px 26px;text-align:center;box-shadow:0 5px 14px rgba(120,40,70,.2)}
+.bk-label em{display:block;font-size:19px;color:#c47a95;font-style:normal}
+.bk-label b{display:block;font:800 26px var(--serif);color:var(--maroon)}
+.bk-label i{color:#e7a2bb;font-style:normal;letter-spacing:3px;font-size:10px}
+.bk-page{position:absolute;inset:6px 0 14px;background:#fffdf8 repeating-linear-gradient(transparent 0 27px,rgba(150,200,230,.2) 27px 28px);border-radius:6px 14px 14px 6px;box-shadow:inset 10px 0 12px -8px rgba(0,0,0,.12),0 12px 26px rgba(80,60,60,.22);padding:18px 18px 56px 26px;display:flex;flex-direction:column;border-left:3px dotted #f0c9d6}
+.bk-page.flip{animation:flip .5s}
+@keyframes flip{from{opacity:0;transform:rotateY(-40deg) translateX(20px);transform-origin:left}}
+.chap{font-size:25px;color:var(--red);text-decoration:underline wavy #f4a3bf;text-underline-offset:5px}
+.txt{flex:1;overflow-y:auto;margin-top:10px;font:700 17.5px/28px var(--hand);color:#3b2a36;padding-right:4px}
+.txt p{margin-bottom:6px}
+.drop{float:left;font:900 40px/34px var(--serif);color:var(--red2);margin:4px 8px 0 0}
+.tbc{align-self:flex-end;font-size:20px;color:var(--red);margin-top:6px}
+.pgn{position:absolute;bottom:12px;right:14px;width:34px;height:34px;border-radius:50%;border:0;background:#fbd8e2;color:var(--red);font:700 13px var(--serif)}
+.pgn.prev{right:auto;left:20px}.pgn svg{width:16px;height:16px}
+.tap{font-size:12px;color:var(--muted);margin:8px 0 6px}
+

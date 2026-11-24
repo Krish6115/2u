@@ -151,3 +151,27 @@
 .lbx svg{width:18px}
 .lbn{display:flex;gap:16px}.lbn button{width:44px;height:44px;border-radius:50%;border:0;background:#fff}.lbn svg{width:18px}
 
+/* ===== 6 places ===== */
+.mapbox{position:absolute;left:0;right:0;top:40px;height:46%;display:grid;place-items:center;padding:0 14px}
+.map-svg{width:100%;max-width:380px;overflow:visible;transform:perspective(700px) rotateX(18deg) rotateZ(-3deg)}
+.psheet{position:absolute;left:0;right:0;bottom:0;height:46%;background:rgba(255,255,255,.94);border-radius:26px 26px 0 0;padding:6px 20px 12px;box-shadow:0 -8px 28px rgba(120,40,70,.14);display:flex;flex-direction:column}
+.psheet .kick{margin-top:12px;color:var(--red2)}
+.places{list-style:none;overflow-y:auto;margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.places li{display:flex;gap:12px;align-items:center;padding:8px 10px;border-radius:14px;font:600 14px var(--sans);cursor:pointer;transition:.25s}
+.places b{flex:none;width:24px;height:24px;border-radius:50%;background:#f8d3df;color:var(--red);font-size:12px;display:grid;place-items:center}
+.places li.sel{background:#fde6ee}.places li.sel b{background:var(--red);color:#fff}
+
+/* ===== 7 date ===== */
+.cal{position:absolute;left:50%;top:76px;width:min(280px,72%);height:56%;transform:translateX(-50%) rotate(-1.5deg)}
+.paper{position:absolute;inset:26px 0 0;background:#fff;border-radius:22px;box-shadow:0 0 0 7px #f7b5cb,0 18px 30px rgba(120,60,120,.25);display:flex;flex-direction:column;align-items:center;padding-top:34px;text-align:center}
+.paper small{font:700 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.dn{font:900 clamp(90px,28vw,130px)/1 var(--serif);color:var(--maroon);margin-top:6px}
+.mo{font:800 24px var(--serif);color:var(--red)}
+.yr{font:600 15px var(--sans);color:var(--muted);margin-top:2px;letter-spacing:.2em}
+.ring{position:absolute;top:0;width:30px;height:52px;border-radius:15px;background:linear-gradient(90deg,#a88be0,#cbb5f4,#9677d6);z-index:2;box-shadow:0 5px 8px rgba(70,30,130,.25)}
+.ring.l{left:22%}.ring.r{right:22%}
+.heartst{position:absolute;right:-8px;top:48px;z-index:3;transform:rotate(14deg);filter:drop-shadow(0 4px 4px rgba(0,0,0,.2))}
+.dsheet,.ssheet,.csheet{position:absolute;left:12px;right:12px;bottom:6px;background:rgba(255,255,255,.93);border-radius:24px;padding:18px 20px 20px;box-shadow:0 -4px 24px rgba(120,40,70,.14)}
+.dsheet .kick,.ssheet .kick{display:block;margin-bottom:4px}
+.dsheet .hand{font-size:23px;margin-top:6px;color:#6a3a55;line-height:1.1}
+

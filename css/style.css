@@ -36,3 +36,29 @@ button{font-family:inherit;cursor:pointer}
 .head{padding:62px 22px 0}
 .hand{font-family:var(--hand);font-weight:700}
 
+/* nav */
+.nav{position:absolute;left:14px;right:14px;bottom:max(14px,env(safe-area-inset-bottom));height:58px;z-index:80;background:rgba(255,255,255,.92);border-radius:999px;display:flex;align-items:center;gap:8px;padding:0 7px;box-shadow:0 8px 26px rgba(120,40,80,.18);transition:transform .4s,opacity .4s}
+.nav.off{transform:translateY(90px);opacity:0;pointer-events:none}
+.nbtn{flex:none;width:42px;height:42px;border-radius:50%;border:0;display:grid;place-items:center;background:transparent;color:var(--maroon)}
+.nbtn.next{background:var(--red);color:#fff;box-shadow:0 4px 10px rgba(194,24,91,.4)}
+.nbtn:disabled{opacity:.4}
+.nbtn svg{width:18px;height:18px}
+.nmid{flex:1;text-align:center;min-width:0}
+.nlabel{font:700 11px var(--sans);color:var(--maroon);display:flex;justify-content:center;gap:10px}
+.nlabel small{font:500 11px var(--sans);color:var(--muted)}
+.dots{display:flex;gap:4px;justify-content:center;margin-top:5px}
+.dots i{width:5px;height:5px;border-radius:50%;background:#e9d4dc;transition:.3s}
+.dots i.done{background:#f3a5bf}
+.dots i.cur{width:16px;border-radius:4px;background:var(--red)}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#d81b60,#b0124d);color:#fff;border:0;border-radius:999px;font:700 16px var(--sans);padding:15px 30px;box-shadow:0 10px 22px rgba(194,24,91,.4)}
+.cta svg{width:18px;height:18px}
+.pillbtn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--maroon);border:0;border-radius:999px;font:600 14px var(--sans);padding:11px 20px;box-shadow:0 4px 14px rgba(120,40,80,.14)}
+.pillbtn{white-space:nowrap}.pillbtn svg{width:16px;height:16px;flex:none}
+.pillbtn.red{background:var(--red);color:#fff}
+
+/* confetti */
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:70}
+.confetti i{position:absolute;top:-20px;border-radius:2px;animation:cf linear forwards}
+@keyframes cf{to{transform:translate(var(--x),110dvh) rotate(var(--r));opacity:.9}}

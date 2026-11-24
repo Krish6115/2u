@@ -116,8 +116,10 @@ BD.claw = {
       ctx.fillStyle = g; ctx.beginPath(); ctx.roundRect(cx - 11, cy - 2, 22, 14, 6); ctx.fill();
     }
 
+    let last = 0;
     function frame(t) {
       requestAnimationFrame(frame);
+      const dt = Math.min(.05, (t - (last || t)) / 1000); last = t;
       if (!el.classList.contains('on')) return;
       ctx.clearRect(0, 0, W, H);
       /* rail */
@@ -127,7 +129,7 @@ BD.claw = {
       ctx.fillStyle = 'rgba(90,40,100,.6)'; ctx.beginPath(); ctx.ellipse(HOLE, 156, 24, 7, 0, 0, 7); ctx.fill();
       ctx.lineWidth = 5; ctx.strokeStyle = '#fff'; ctx.beginPath(); ctx.ellipse(HOLE, 156, 26, 8, 0, 0, 7); ctx.stroke();
       ctx.strokeStyle = '#f48fb1'; ctx.setLineDash([5, 5]); ctx.beginPath(); ctx.ellipse(HOLE, 156, 26, 8, 0, 0, 7); ctx.stroke(); ctx.setLineDash([]);
-      if (dir && !busy) cx = Math.max(14, Math.min(W - 14, cx + dir * 1.4));
+      if (dir && !busy) cx = Math.max(14, Math.min(W - 14, cx + dir * 95 * dt));
       if (prize && !carried && !falling) {
         const pulse = 1 + Math.sin(t / 220) * .06;
         ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.beginPath(); ctx.arc(prize.x, prize.y, 19 * pulse, 0, 7); ctx.fill();
@@ -148,10 +150,18 @@ BD.claw = {
       knob.style.transform = `translate(${x * 16}px,${y * 16}px)`;
       dir = Math.abs(x) > .25 ? Math.sign(x) * Math.min(1, Math.abs(x) * 1.3) : 0;
     }
-    pad.addEventListener('pointerdown', e => { pad.setPointerCapture(e.pointerId); stick(e); });
-    pad.addEventListener('pointermove', e => { if (pad.hasPointerCapture(e.pointerId)) stick(e); });
-    const rel = () => { dir = 0; knob.style.transform = ''; };
-    pad.addEventListener('pointerup', rel); pad.addEventListener('pointercancel', rel);
+    let dragging = false;
+    const rel = () => { dragging = false; dir = 0; knob.style.transform = ''; };
+    pad.addEventListener('pointerdown', e => {
+      dragging = true;
+      try { pad.setPointerCapture(e.pointerId); } catch { /* window listeners still track it */ }
+      stick(e);
+    });
+    addEventListener('pointermove', e => { if (dragging) stick(e); });
+    addEventListener('pointerup', () => { if (dragging) rel(); });
+    addEventListener('pointercancel', () => { if (dragging) rel(); });
+    addEventListener('blur', rel);
+    pad.addEventListener('lostpointercapture', () => { if (dragging) rel(); });
     const keys = new Set();
     addEventListener('keydown', e => {
       if (!el.classList.contains('on')) return;
@@ -171,7 +181,7 @@ BD.claw = {
 
     async function grab() {
       if (busy || found >= total) return;
-      busy = true; rel(); $('.pop').hidden = true;
+      busy = true; $('.pop').hidden = true;
       await BD.tween(cy, REACH, 850, v => cy = v);
       await BD.tween(open, 1, 420, v => open = v);
       const hit = prize && Math.abs(prize.x - cx) < 17;

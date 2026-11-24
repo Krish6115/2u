@@ -104,3 +104,18 @@
 .pgn.prev{right:auto;left:20px}.pgn svg{width:16px;height:16px}
 .tap{font-size:12px;color:var(--muted);margin:8px 0 6px}
 
+/* ===== 4 wishes ===== */
+.s4 .jar{position:absolute;left:50%;top:104px;width:min(250px,62%);transform:translateX(-50%)}
+.jar-svg{width:100%;display:block;filter:drop-shadow(0 0 22px rgba(255,214,110,.6))}
+.tw{animation:tw 2.4s ease-in-out infinite;filter:drop-shadow(0 0 3px #fff6bb)}
+@keyframes tw{50%{opacity:.45}}
+.jar.shake{animation:shake .6s}
+@keyframes shake{20%{transform:translateX(-50%) rotate(-5deg)}50%{transform:translateX(-50%) rotate(5deg)}80%{transform:translateX(-50%) rotate(-3deg)}}
+.spark{position:absolute;left:44%;top:12%;font-style:normal;font-size:16px;pointer-events:none;animation:sp 1.5s ease-out forwards;text-shadow:0 0 8px #ffd36e}
+@keyframes sp{to{transform:translate(var(--dx),var(--dy)) rotate(260deg) scale(.4);opacity:0}}
+.notes{position:absolute;left:18px;right:18px;top:calc(104px + min(250px,62vw)*1.14);bottom:64px;overflow-y:auto;display:flex;flex-direction:column;gap:9px;padding:4px 0}
+.note{background:rgba(255,255,255,.78);border-radius:14px;padding:11px 14px;font:600 13.5px/1.4 var(--sans);color:#6a3a55;box-shadow:0 4px 12px rgba(200,100,140,.16);animation:nin .5s cubic-bezier(.3,1.4,.5,1);flex:none}
+.note:nth-child(even){background:rgba(236,224,252,.85)}
+@keyframes nin{from{opacity:0;transform:translateY(16px) scale(.9)}}
+.wbar{position:absolute;left:0;right:0;bottom:8px;display:grid;place-items:center}
+

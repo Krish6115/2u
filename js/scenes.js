@@ -69,8 +69,7 @@
         <div class="arm" id="arm"><i class="piv"></i><i class="bar"></i><i class="hd"></i></div><span class="tdot"></span></div>
       <div class="ssheet"><span class="kick">Press play</span><h2 class="h2">Our song</h2>
         <p class="stitle">${esc(d.so.title || '')}</p>
-        <div class="srow"><button class="playb" id="playB">${art.icons.play}</button><span class="sstat" id="sstat">Tap the heart or play</span><a class="yt" id="ytLink" target="_blank" rel="noopener">Open on YouTube</a></div></div>
-      <div class="yt-hold"><div class="ytbox"><button class="ytx">✕</button><div id="ytp"></div><p class="ytmsg"></p><a class="ytopen pillbtn red" target="_blank" rel="noopener" hidden>Open on YouTube</a></div></div>`;
+        <div class="srow"><button class="playb" id="playB">${art.icons.play}</button><span class="sstat" id="sstat">Tap the heart to play on YouTube</span></div></div>`;
 
     S[9] = BD.candles.html(d);
 
@@ -211,62 +210,15 @@
       sel(0);
     }
 
-    /* ---- 8 song (YouTube, played inside the page) ---- */
+    /* ---- 8 song: heart or play opens the YouTube link in a new tab ---- */
     {
-      const id = BD.ytId(d.so.url), url = id ? 'https://www.youtube.com/watch?v=' + id : '';
-      if (url) $('#ytLink').href = url; else $('#ytLink').hidden = true;
-      const hold = $('.yt-hold', scenes[8]); phone.appendChild(hold);
-      const ytMsg = $('.ytmsg', hold), ytOpen = $('.ytopen', hold);
-      ytOpen.href = url;
-      let player = null, ready = false, playing = false, wait = 0;
-      const rec = $('#rec'), arm = $('#arm'), stat = $('#sstat'), pb = $('#playB');
-      const ui = on => {
-        playing = on; rec.classList.toggle('spin', on); arm.classList.toggle('on', on);
-        pb.innerHTML = on ? art.icons.pause : art.icons.play; stat.textContent = on ? 'Playing…' : 'Paused';
+      const id = BD.ytId(d.so.url), url = 'https://www.youtube.com/watch?v=' + id;
+      const rec = $('#rec'), arm = $('#arm'), stat = $('#sstat');
+      const play = () => {
+        window.open(url, '_blank', 'noopener');
+        rec.classList.add('spin'); arm.classList.add('on'); stat.textContent = 'Playing on YouTube';
       };
-      const showModal = (msg, link) => { ytMsg.textContent = msg; ytOpen.hidden = !link; hold.classList.add('show'); };
-      const hideModal = () => hold.classList.remove('show');
-      $('.ytx', hold).onclick = hideModal;
-      function load() {
-        if (player) return;
-        const mk = () => { player = new YT.Player('ytp', { width: 320, height: 180, videoId: id, playerVars: { playsinline: 1, rel: 0, controls: 1 }, events: {
-          onReady: () => { ready = true; },
-          onStateChange: e => {
-            if (e.data === 1) { clearTimeout(wait); ui(true); hideModal(); }
-            else if (e.data === 2 || e.data === 0) ui(false);
-          },
-          onError: () => { clearTimeout(wait); ui(false); showModal('This video does not allow playing inside other pages.', true); } } }); };
-        if (window.YT && YT.Player) return mk();
-        window.onYouTubeIframeAPIReady = mk;
-        const s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api';
-        s.onerror = () => showModal('Could not load the player. Check your internet connection.', true);
-        document.head.appendChild(s);
-      }
-      const file = (d.so.file || '').trim();
-      let audio = null;
-      function toggle() {
-        if (file) {
-          if (!audio) {
-            audio = new Audio(file); audio.loop = true;
-            audio.onplay = () => ui(true); audio.onpause = () => ui(false);
-            audio.onerror = () => { stat.textContent = 'Could not find ' + file; };
-          }
-          audio.paused ? audio.play().catch(() => { stat.textContent = 'Tap play again'; }) : audio.pause();
-          return;
-        }
-        if (location.protocol === 'file:') {
-          showModal('YouTube blocks pages opened straight from a folder. This works once the site is hosted (GitHub Pages) or run with a local server.', true);
-          return;
-        }
-        if (!ready) { stat.textContent = 'Loading song…'; load(); setTimeout(() => ready ? toggle() : showModal('Still loading… tap play on the video when it appears.', false), 3000); return; }
-        if (playing) { player.pauseVideo(); return; }
-        player.playVideo();
-        /* if the browser blocks autoplay, show the real player so one tap on its play button starts it */
-        wait = setTimeout(() => { if (!playing) showModal('Tap play on the video to start the song.', false); }, 1800);
-      }
-      $('#songHeart').onclick = toggle; pb.onclick = toggle;
-      hooks.enter[8] = () => { if (!file && location.protocol !== 'file:') load(); };
-      BD.stopSong = () => { try { player && player.pauseVideo(); audio && audio.pause(); } catch { /* ignore */ } };
+      $('#songHeart').onclick = play; $('#playB').onclick = play;
     }
 
     /* ---- 9 candles ---- */
@@ -275,7 +227,7 @@
 
     /* ---- 10 finale ---- */
     hooks.enter[10] = () => BD.confetti(scenes[10], 50);
-    $('#again').onclick = () => { BD.stopSong && BD.stopSong(); location.reload(); };
+    $('#again').onclick = () => location.reload();
 
     BD.go = go;
     go(0);

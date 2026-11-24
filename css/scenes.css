@@ -195,14 +195,6 @@
 .playb{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:var(--red);color:#fff;display:grid;place-items:center;box-shadow:0 6px 14px rgba(194,24,91,.4)}
 .playb svg{width:20px;height:20px}
 .sstat{flex:1;font:500 13px var(--sans);color:var(--muted)}
-.yt{font:700 12px var(--sans);color:var(--red);text-decoration:none;border-bottom:1.5px solid #f3a5bf;padding-bottom:1px}
-.yt-hold{position:absolute;left:-600px;top:0;width:100%;height:100%;z-index:120;display:grid;place-items:center;background:rgba(20,8,16,.86);opacity:0;pointer-events:none;transition:opacity .3s}
-.yt-hold.show{left:0;opacity:1;pointer-events:auto}
-.ytbox{width:90%;display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;padding-top:34px}
-.ytbox iframe{width:100%;aspect-ratio:16/9;height:auto;border-radius:14px;background:#000}
-.ytx{position:absolute;top:0;right:0;width:32px;height:32px;border-radius:50%;border:0;background:#fff;color:var(--maroon);font-size:14px}
-.ytmsg{color:#fff;font:600 14px/1.4 var(--sans);text-align:center}
-.ytmsg:empty{display:none}
 
 /* ===== 9 candles ===== */
 .s9 .cake-stage{position:absolute;left:0;right:0;top:48px;bottom:200px;display:grid;place-items:center;padding:0 24px}

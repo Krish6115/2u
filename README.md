@@ -9,8 +9,7 @@ No build step, no backend. All the text and photos you enter are packed into the
 
     python -m http.server 8000
 
-Then open http://localhost:8000. The song needs http or https, so opening index.html straight
-from the folder will not play it.
+Then open http://localhost:8000.
 
 ## Host
 
@@ -19,7 +18,6 @@ points to the hosted address.
 
 ## Song
 
-Either paste a YouTube link, or drop an mp3 next to index.html and type its name in the form.
-Some YouTube videos do not allow embedding, an mp3 always works.
+Paste a YouTube link in the form. Tapping the heart on the record opens it in a new tab.
 
 Try it without filling the form: index.html#demo

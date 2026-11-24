@@ -204,3 +204,43 @@
 .ytmsg{color:#fff;font:600 14px/1.4 var(--sans);text-align:center}
 .ytmsg:empty{display:none}
 
+/* ===== 9 candles ===== */
+.s9 .cake-stage{position:absolute;left:0;right:0;top:48px;bottom:200px;display:grid;place-items:center;padding:0 24px}
+.s9 .cake-svg{height:100%;max-height:420px;width:auto;filter:drop-shadow(0 20px 24px rgba(0,0,0,.45))}
+.candle .flame{transform-origin:50% 100%;animation:fl 1s ease-in-out infinite alternate;animation-delay:calc(var(--i)*.15s);transform-box:fill-box}
+@keyframes fl{to{transform:scale(.92,1.06) rotate(2deg)}}
+.candle.out .flame{opacity:0;transition:opacity .25s}
+.candle.out .smoke{animation:smoke 2.6s ease-out forwards}
+@keyframes smoke{0%{opacity:0;transform:translateY(8px)}20%{opacity:.85}to{opacity:0;transform:translateY(-22px)}}
+.csheet{background:rgba(255,255,255,.88);padding:16px 18px 14px;bottom:8px}
+.crow{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px}
+.minis{display:flex;gap:3px}
+.minis i{width:3px;height:14px;background:#f0a0be;border-radius:1px;position:relative}
+.minis i::before{content:'';position:absolute;left:-1px;top:-5px;width:5px;height:6px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:#ffb300;transition:.3s}
+.minis i.off::before{opacity:0}
+.cbtns{display:flex;gap:10px;margin-top:12px}
+.cb{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:999px;border:0;background:#fff;color:var(--maroon);font:700 13px var(--sans);box-shadow:inset 0 0 0 1.5px #f0d5df}
+.cb svg{width:16px;height:16px}
+.cb.mic{background:var(--red);color:#fff;box-shadow:none}
+.cb.live{animation:livep 1s infinite;background:var(--red2);color:#fff}
+@keyframes livep{50%{box-shadow:0 0 0 6px rgba(194,24,91,.25)}}
+.cb:disabled{opacity:.45}
+.cnote{font:500 10.5px/1.4 var(--sans);color:var(--muted);margin-top:10px}
+.s9.done .cnote{visibility:hidden}
+
+/* dark mode after wish */
+.phone.dark .bg9{background:radial-gradient(80% 50% at 50% 35%,#4a3b3e,#1c1417)}
+.phone.dark .s9 .csheet{background:rgba(220,210,214,.7)}
+
+/* ===== 10 finale ===== */
+.fin{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px 10px;gap:6px}
+.fin .bl.big{flex-direction:row;margin:0 0 12px;align-self:center}
+.fin .balloon{font-size:clamp(100px,32vw,132px);letter-spacing:-.04em;padding:0 8px}
+
+.fin .balloon::after{display:none}
+.fin .hb{margin-top:6px}
+.with{font-size:27px;line-height:1.05;margin-top:8px;color:#4a2d3f}
+.ico8{display:flex;gap:8px;margin:18px 0 14px;flex-wrap:wrap;justify-content:center}
+.ico8 i{width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal;font-size:15px;box-shadow:0 3px 8px rgba(120,40,80,.14)}
+
+@media(max-height:690px){.hb{font-size:30px;margin-top:10px}.cyc{font-size:24px}.balloon{font-size:70px}}

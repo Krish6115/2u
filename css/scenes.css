@@ -19,3 +19,22 @@
 .balloon::after{content:'';position:absolute;left:50%;top:92%;width:1.5px;height:34px;background:rgba(200,120,150,.5);transform:translateX(-50%)}
 @keyframes bob{50%{transform:translateY(-8px) rotate(2deg)}}
 
+/* ===== 1 letter ===== */
+.s1 .env{position:absolute;left:0;right:0;bottom:0;height:46%;cursor:pointer;transition:transform .6s,opacity .5s}
+.s1 .env-svg{width:100%;height:100%;display:block;filter:drop-shadow(0 -6px 14px rgba(160,40,90,.22))}
+.s1 .env.opened{transform:translateY(8%)}
+.pull{position:absolute;bottom:14px;left:0;right:0;display:flex;flex-direction:column;align-items:center;font:700 9.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:rgba(122,20,60,.65)}
+.pull svg{width:14px;height:14px;animation:nudge 1.4s infinite}
+.pull em{font-style:normal}
+@keyframes nudge{50%{transform:translateY(-4px)}}
+.lsheet{position:absolute;left:12px;right:12px;bottom:8px;height:calc(100% - 64px);background:#fffaf6;border-radius:24px;box-shadow:0 -6px 30px rgba(120,30,70,.25);display:flex;flex-direction:column;transform:translateY(105%);transition:transform .6s cubic-bezier(.2,.9,.3,1);z-index:5}
+.lsheet.open{transform:none}
+.grip{display:block;width:44px;height:4px;border-radius:2px;background:#ead3dc;margin:8px auto 0}
+.lhead{display:flex;justify-content:space-between;align-items:center;padding:12px 18px 8px;border-bottom:1px solid #f4e3e8}
+.lbtns{display:flex;gap:8px}
+.lbtns button,.rbtn{width:36px;height:36px;border-radius:50%;border:0;background:#fff;color:var(--maroon);box-shadow:0 2px 8px rgba(120,40,80,.15);display:grid;place-items:center}
+.lbtns svg,.rbtn svg{width:17px;height:17px}
+.lbody{flex:1;overflow-y:auto;padding:12px 18px 24px;font-size:14.5px;line-height:1.62;color:#4a2d3f}
+.lbody p{margin-bottom:12px}
+.lbody .dear{font:700 26px var(--hand);color:var(--red)}
+

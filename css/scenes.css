@@ -1,0 +1,21 @@
+/* ===== 0 intro ===== */
+.intro{height:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:44px 20px 26px}
+.pill{display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--red);font:700 11px var(--sans);letter-spacing:.12em;padding:7px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(194,24,91,.14)}
+.pill svg{width:14px;height:14px}
+.hb{font:900 clamp(30px,9.4vw,40px)/1.05 var(--serif);color:var(--maroon);margin-top:16px}
+.hb .nm{color:var(--red)}
+.cyc{font-size:30px;color:var(--ink);margin-top:8px;line-height:1}
+.cw{color:var(--red);display:inline-block;transition:.35s;background:linear-gradient(transparent 82%,rgba(255,200,120,.7) 82%)}
+.cw.swap{opacity:0;transform:translateY(8px)}
+.sub{color:var(--muted);font-size:14px;margin-top:8px}
+.stage{flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;gap:0;margin:10px 0}
+.stage .cake-svg{max-width:74%;width:74%;max-height:100%;height:auto;flex:none;filter:drop-shadow(0 14px 14px rgba(120,40,80,.18));position:relative;z-index:1}
+.stage .candle .smoke,.cake-svg .smoke{opacity:0}
+.bl,.br{display:flex;flex-direction:column;align-self:flex-start;z-index:2}
+.stage .bl{margin:0 -46px 0 0}.stage .br{margin:12% 0 0 -46px}
+.balloon{display:block;font:900 clamp(84px,26vw,112px)/1 var(--serif);background:linear-gradient(155deg,#fffafb 0%,#ffd3e1 28%,#fbaac6 60%,#ffd0df 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 10px 8px rgba(220,80,130,.3));animation:bob 4s ease-in-out infinite;position:relative;isolation:isolate}
+.balloon::before{content:attr(data-t);position:absolute;inset:0;z-index:-1;-webkit-text-stroke:12px #ee7fa4;color:#ee7fa4;-webkit-background-clip:border-box;background:none;text-shadow:0 0 0 #f6a3bf}
+.br .balloon{animation-delay:-1.8s}
+.balloon::after{content:'';position:absolute;left:50%;top:92%;width:1.5px;height:34px;background:rgba(200,120,150,.5);transform:translateX(-50%)}
+@keyframes bob{50%{transform:translateY(-8px) rotate(2deg)}}
+
